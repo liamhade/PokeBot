@@ -13,7 +13,7 @@ def get_channel_messages(channel_id: int, headers_file: str) -> List[Dict]:
 	return resp.json()
 
 if __name__ == "__main__":
-	headers_file = "static/discord_headers.json"
+	headers_file = "../static/discord_headers.json"
 	channel_id = "802706129753735188" # Channel with Kat
 
 	messages = get_channel_messages(channel_id, headers_file)
