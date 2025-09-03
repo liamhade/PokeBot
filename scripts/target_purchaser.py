@@ -1,59 +1,43 @@
-from typing import Tuple, List, Dict
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.remote.webelement import WebElement
-import pyautogui
+from playwright.sync_api import sync_playwright
 
-def wait_and_get(driver, selemnium_selector: Tuple, timeout: int = 10) -> WebElement:
-    """Wait for element to appear and return it."""
-    return WebDriverWait(driver, timeout).until(
-        EC.presence_of_element_located(selemnium_selector)
-    )
+with sync_playwright() as p:
+    # Launch Chromium (headless=False shows the browser window)
+    browser = p.chromium.launch(headless=False)
+    page = browser.new_page()
 
-# Setting up driver
-service = Service("C:\\Users\\liamh\\sandbox\\PokeBot\\chromedriver.exe")
-driver = webdriver.Chrome(service=service)
+    # Go to a page
+    base_url = "https://www.target.com"
+    page.goto("https://www.target.com/s?searchTerm=Pokemon")
 
-# # Navigate to login page from homepage
-# driver.get("https://www.target.com")
+    # Click a link by its text
+    items = page.locator("a[data-test='product-title']")
+    num_items = items.count()
 
-# # Wait for manual login
-# while not os.path.exists("continue.txt"):
-#     print("Login and create continue.txt to continue...")
-#     time.sleep(3)
+    # Going to the 5th item
+    item_url = base_url + items.nth(5).get_attribute("href")
+    page.goto(item_url)
 
-# Get page
-driver.get("https://www.target.com/p/pokemon-trading-card-game-trick-or-trade-booster-bundle/-/A-87266074#lnk=sametab")
+    # Try to add to cart
+    page.click("button[data-test='shippingButton']")
 
-# # Click on item
-# item = wait_and_get(driver, (By.CSS_SELECTOR, "div[data-test=\"@web/site-top-of-funnel/ProductCardWrapper\"]"))
-# item.click()
+    # View cart and checkout (then wait)
+    page.click("a[href='/cart']")
 
-# Add to cart
-add_to_cart = wait_and_get(driver, (By.CSS_SELECTOR, "[data-test=\"shippingButton\"]"))
-add_to_cart.click()
+    # Click 'sign in and checkout' button 
+    page.click("button[data-test='checkout-button']")
 
-# View cart and checkout (then wait)
-go_to_cart = wait_and_get(driver, (By.CSS_SELECTOR, "a[href=\"/cart\"]"))
-go_to_cart.click()
+    # Sign in
+    email = "liamhade@gmail.com"
+    password = "target2025"
+    page.type("input[name='username']", email, delay=25)  # Typing with a delay to mimic human behavior
+    page.type("input[name='password']", password, delay=33)
+    page.click("button[id='login']")
 
-# Click 'sign in and checkout' button
-wait_and_get(driver, (By.CSS_SELECTOR, "button[data-test=\"checkout-button\"]"))
-driver.find_elements(By.CSS_SELECTOR, "button[data-test=\"checkout-button\"]")[-1].click()
+    # Place order
+    page.click("button[data-test='placeOrderButton']")
 
-# Sign in
-email = "liamhade@gmail.com"
-password = "target2025"
-wait_and_get(driver, (By.CSS_SELECTOR, "input[id=\"username\"]")).click()
-pyautogui.write(email)
-wait_and_get(driver, (By.CSS_SELECTOR, "input[name=\"password\"]")).send_keys(password)
-wait_and_get(driver, (By.CSS_SELECTOR, "button[id=\"login\"]")).click()
+    # Enter CVV and confirm order
+    page.type("input[id='enter-cvv']", "123", delay=30)  # Typing CVV with a delay
+    page.click("button[data-test='confirm-button']")
 
-# Place order
-wait_and_get(driver, (By.CSS_SELECTOR, "button[data-test=\"placeOrderButton\"]"))
-driver.find_elements(By.CSS_SELECTOR, "button[data-test=\"placeOrderButton\"]")[-1].click()
-
-# Enter CVV and confirm order
+    input("Done")

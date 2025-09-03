@@ -1,10 +1,5 @@
 # TODO
 
-## TARGET PURCHASER
-
-- [ ] Test out purchasing on Target using Selenium
-
-- [ ] Figure out how persistent the account Cookie is on Target
 ## Dev Stage 1
 
 - [x] Setup Discord API
@@ -12,6 +7,8 @@
 - [ ] Test out changedetection.io
 
 - [ ] Create rudimentary automatic Target purchaser
+
+	- Make a minimally viable product (no bells and whistles)
 
 - [ ] Redraw architecture
 

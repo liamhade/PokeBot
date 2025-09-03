@@ -1,10 +1,6 @@
 # PokeBot
 
-## Target Bot
-
-I'm having issues creating the Target bot. It seems like Target doesn't let me sign-in using the chromedriver, need to think of some workarounds.
-
-## Creation Notes
+## CREATION NOTES
 
 Need to be transferred over from the other project.
 
@@ -62,3 +58,5 @@ I accidently commited some sensitive information in a previous commit, so I had 
 I need to find a service that can cheaply tell me if any site has changed. Then, if it has changed, I need to figure out how it's changed, and if anything that I want is available.
 
 I think it's more helpful, when you don't really know the detailed steps to take in a project, to map everything out at more abstract level, then provide multiple roads of possibilities in the details.
+
+Switched to using Playwright instead. I think I should have done more research in the beginnign about which tools I should use. I chose Selenium because that was what I had always used, but times have changed, and there's been a lot of work done in the field of web-scraping.
