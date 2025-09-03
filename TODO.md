@@ -2,7 +2,7 @@
 
 ## Dev Stage 1
 
-- [ ] Setup Discord API
+- [x] Setup Discord API
 
 - [ ] Test out changedetection.io
 

@@ -43,3 +43,5 @@ I'm trying to create a Python script that sniffs the packets in a Discord server
 I accidently commited some sensitive information in a previous commit, so I had to remove the last three commits using `git reset --soft HEAD~3` to get rid of those commits while still keeping all of my files intact. Once that was setup, I could push to remote.
 
 I need to find a service that can cheaply tell me if any site has changed. Then, if it has changed, I need to figure out how it's changed, and if anything that I want is available.
+
+I think it's more helpful, when you don't really know the detailed steps to take in a project, to map everything out at more abstract level, then provide multiple roads of possibilities in the details.
