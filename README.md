@@ -1,5 +1,9 @@
 # PokeBot
 
+## Target Bot
+
+I'm having issues creating the Target bot. It seems like Target doesn't let me sign-in using the chromedriver, need to think of some workarounds.
+
 ## Creation Notes
 
 Need to be transferred over from the other project.
