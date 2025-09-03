@@ -1,0 +1,61 @@
+{
+  "note": "Hello! If you change this file manually, please be sure to restart your changedetection.io instance!",
+  "watching": {},
+  "settings": {
+    "headers": {},
+    "requests": {
+      "extra_proxies": [],
+      "extra_browsers": [],
+      "jitter_seconds": 0,
+      "proxy": null,
+      "time_between_check": {
+        "weeks": null,
+        "days": null,
+        "hours": 3,
+        "minutes": null,
+        "seconds": null
+      },
+      "timeout": 45,
+      "workers": 10,
+      "default_ua": {
+        "html_requests": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36",
+        "html_webdriver": null
+      }
+    },
+    "application": {
+      "api_access_token_enabled": true,
+      "base_url": null,
+      "empty_pages_are_a_change": false,
+      "extract_title_as_title": false,
+      "fetch_backend": "html_requests",
+      "filter_failure_notification_threshold_attempts": 6,
+      "global_ignore_text": [],
+      "global_subtractive_selectors": [],
+      "ignore_whitespace": true,
+      "notification_body": "{{watch_url}} had a change.\n---\n{{diff}}\n---\n",
+      "notification_format": "HTML Color",
+      "notification_title": "ChangeDetection.io Notification - {{watch_url}}",
+      "notification_urls": [],
+      "pager_size": 50,
+      "password": false,
+      "render_anchor_tag_content": false,
+      "rss_access_token": "a5f6dc3efa72885ac0eac9be342c93a5",
+      "rss_content_format": "plaintext",
+      "rss_hide_muted_watches": true,
+      "schema_version": 19,
+      "shared_diff_access": false,
+      "webdriver_delay": null,
+      "tags": {},
+      "timezone": null,
+      "ui": {
+        "open_diff_in_new_tab": true,
+        "socket_io_enabled": true,
+        "favicons_enabled": true
+      },
+      "active_base_url": "(\"Base URL\" not set - see settings - notifications)",
+      "api_access_token": "5b8146b3545e8cc99ac47de678d1591b"
+    }
+  },
+  "app_guid": "db93e860-be80-4a56-8a74-3841fd3ddde3",
+  "version_tag": "0.50.11"
+}

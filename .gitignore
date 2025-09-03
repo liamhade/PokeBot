@@ -1,3 +1,4 @@
-__pycache__/
-statics/
 .venv/
+__pycache__/
+static/*
+data/secret.txt
